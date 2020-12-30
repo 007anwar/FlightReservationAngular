@@ -36,14 +36,7 @@ this.flightData=response;
    })
  
   }
-public hideLogic2()
-{
-  return true;
-}
-public hideLogic1()
-{
-  return true;
-}
+
   public reserve(obj):any{
     obj.flightId=this.flightId;
     console.log("reserve");
