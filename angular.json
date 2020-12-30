@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "flightReservation"
+    }
+  },
+  "defaultProject": "flightReservation",
+  "cli": {
+    "analytics": false
+  }
 }

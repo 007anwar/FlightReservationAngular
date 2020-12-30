@@ -1,0 +1,61 @@
+<nav class="navbar navbar-dark bg-dark" >
+    <span class="navbar-text">
+     <H5>FLIGHT DETAILS</H5>
+       </span>
+    <span class="navbar-text">
+       ID : {{flightData.id}}
+      </span>
+      <span class="navbar-text">
+       FLIGHT NUMBER : {{flightData.flightNumber}}
+      </span>
+      <span class="navbar-text">
+       OPERATING AIRLINES : {{flightData.operatingAirlines}}
+      </span>
+      <span class="navbar-text">
+       FROM: {{flightData.departureCity}}
+      </span>
+      <span class="navbar-text">
+        TO: {{flightData.arrivalCity}}
+      </span>
+      <span class="navbar-text">
+        DATE: {{flightData.dateOfDeparture}}
+      </span>
+  </nav>
+
+ 
+
+
+
+  <h3 align='center'>PASSENGER DETAILS</h3>
+  <div class="container">
+      <form #passagerForm="ngForm" (ngSubmit)="reserve(passagerForm.value)">
+          
+        <div class="form-group">
+            <label>First Name</label><input type="text" name="passengerFirstName" class="form-control" [(ngModel)]="passengerFirstName">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label><input type="text" name="passengerLastName" class="form-control" [(ngModel)]="passengerLastName">
+        </div>
+        <div class="form-group">
+            <label>Middel Name</label><input type="text" name="passengerMiddleName" class="form-control" [(ngModel)]="passengerMiddleName">
+        </div>
+        <div class="form-group">
+            <label>Email</label><input type="text" name="passengerEmail" class="form-control" [(ngModel)]="passengerEmail">
+        </div>
+        <div class="form-group">
+            <label>Contact Number</label><input type="text" name="passengerPhone" class="form-control" [(ngModel)]="passengerPhone">
+        </div>
+        <div class="form-group">
+            <label>CARD NUMBER</label><input type="text" name="cardNumber" class="form-control" [(ngModel)]="cardNumber">
+        </div>
+        <div class="form-group">
+            <label>EXPIRY DATE</label><input type="text" name="expirationDate" class="form-control" [(ngModel)]="expirationDate">
+        </div>
+        <div class="form-group">
+            <label>PIN</label><input type="text" name="securityCode" class="form-control" [(ngModel)]="securityCode">
+        </div>
+        <div class="form-group" align="center">
+            <input type="submit" value="submit"  class="btn btn-success">
+          </div>
+      </form>
+  </div>

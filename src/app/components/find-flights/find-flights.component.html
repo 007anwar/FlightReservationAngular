@@ -1,0 +1,49 @@
+<h3 align="center">FIND FLIGHTS</h3>
+<div class="container">
+
+    <form [formGroup]="findFlight" (ngSubmit)="findFlights()">
+
+        <div class="form-group">
+            <label>FROM </label>
+            <input type="text" class="form-control" formControlName="from">
+        </div>
+
+        <div class="form-group">
+            <label>TO</label>
+            <input type="text" class="form-control" formControlName="to">
+        </div>
+
+        <div class="form-group">
+            <label>DEPARTURE DATE</label>
+            <input type="text" class="form-control" formControlName="departureDate">
+        </div>
+
+        <div align="center">
+            <input type="submit" value="FIND" class="btn btn-success">
+        </div>
+
+    </form>
+
+</div>
+<div class="container">
+    <table class="table" [hidden]=showResults>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FLIGHT NUMBER</th>
+                <th>OPERATING AIRLINES</th>
+                <th>DEPARTURE TIME</th>
+                <th>RESERVE</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor="let flight of flights">
+            <td>{{flight.id}}</td>
+            <td>{{flight.flightNumber}}</td>
+            <td>{{flight.operatingAirlines}}</td>
+            <td>{{flight.estimatedDepartureTime}}</td>
+            <td><input type="button" value="RESERVE" class="btn btn-success" [routerLink]="['/passengerDetails',flight.id]"></td>
+        </tr>
+    </tbody>
+</table>
+</div>

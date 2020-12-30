@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FLIGHT NUMBER</th>
+                <th>OPERATING AIRLINES</th>
+                <th>DEPARTURE TIME</th>
+                <th>RESERVE</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor="let flight of flights">
+            <td>{{flight.id}}</td>
+            <td>{{flight.flightNumber}}</td>
+            <td>{{flight.operatingAirlines}}</td>
+            <td>{{flight.estimatedDepartureTime}}</td>
+            <td><input type="button" value="RESERVE" class="btn btn-success" [routerLink]="['/passengerDetails',flight.id]"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
