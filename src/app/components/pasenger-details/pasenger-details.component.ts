@@ -46,8 +46,8 @@ console.log(obj)
 this._service.saveReservation(obj).subscribe(
   response=>{
 this.reservationResponse=response;
-console.error("RESERVATION RESPONSE"+this.reservationResponse.id)
-this.router.navigate(['confirmReservation',this.reservationResponse.id]);
+console.error("RESERVATION RESPONSE"+response.id)
+this.router.navigate(['confirmReservation',response.id]);
   },err=>{
 console.log(err);
   }
