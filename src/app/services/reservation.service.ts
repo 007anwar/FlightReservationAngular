@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class ReservationService {
+  baseurl:string="http://localhost:8080/flightservices"
 flightsUrl:string="http://localhost:8080/flightservices/flights"
 reservationUrl:string="http://localhost:8080/flightservices/reservations"
   constructor(private _httpClient:HttpClient) { }
@@ -22,5 +23,14 @@ reservationUrl:string="http://localhost:8080/flightservices/reservations"
 
   public saveReservation(reservation):any{
     return this._httpClient.post(this.reservationUrl,reservation)
+  }
+  public getPassengerByReservationId(reservationid:string):any{
+    return this._httpClient.get(this.baseurl+"/passenger/"+reservationid)
+  }
+  public getFlightByReservationId(reservationid:string):any{
+    return this._httpClient.get(this.baseurl+"/flight/"+reservationid)
+  }
+  public confirmReservationReservationId(reservationid:string):any{
+    return this._httpClient.get(this.reservationUrl+"/confirm/"+reservationid)
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
@@ -10,17 +10,18 @@ import { ReservationService } from 'src/app/services/reservation.service';
 export class PasengerDetailsComponent implements OnInit {
   reservationResponse:Object;
 flightData:any;
-passengerFirstName:string;
-passengerLastName:string;
-passengerMiddleName:string;
-passengerEmail:string;
-passengerPhone:string;
-cardNumber:string;
-expirationDate:string;
-securityCode:string;
+passengerFirstName:string="Anwar";
+passengerLastName:string="Mulla";
+passengerMiddleName:string="MD";
+passengerEmail:string="anwar.mulla@nihilent.com ";
+passengerPhone:string="9763025121";
+cardNumber:string="1234321";
+expirationDate:string="120022";
+securityCode:string="2323";
 flightId:string;
 showNav:boolean;
-  constructor(private route:ActivatedRoute,private _service:ReservationService) {
+reservationId:string;
+  constructor(private route:ActivatedRoute,private _service:ReservationService,private router:Router) {
 
    }
 
@@ -38,18 +39,22 @@ this.flightData=response;
   }
 
   public reserve(obj):any{
+    console.log("Reservation initiated")
     obj.flightId=this.flightId;
     console.log("reserve");
 console.log(obj)
 this._service.saveReservation(obj).subscribe(
   response=>{
 this.reservationResponse=response;
-console.log("Reservation response")
-console.log(this.reservationResponse);
+console.error("RESERVATION RESPONSE"+this.reservationResponse.id)
+this.router.navigate(['confirmReservation',this.reservationResponse.id]);
   },err=>{
 console.log(err);
   }
+
 );
+
+
   }
 
 }

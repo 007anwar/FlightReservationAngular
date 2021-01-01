@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'displayFlights',component:DisplayFlightsComponent},
   {path:'findFlight',component:FindFlightsComponent},
   {path:'passengerDetails/:id',component:PasengerDetailsComponent},
-  {path:'confirmReservation/:id',component:ConfirmComponent}
+  {path:'confirmReservation/:reservationid',component:ConfirmComponent}
 ];
 
 @NgModule({
