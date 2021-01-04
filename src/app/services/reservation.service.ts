@@ -31,7 +31,7 @@ reservationUrl:string="http://localhost:8080/flightservices/reservations"
 
   public saveReservation(reservation):any{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa("anwar" + ':' + "password") });
-    return this._httpClient.post(this.reservationUrl,gitreservation,{headers})
+    return this._httpClient.post(this.reservationUrl,reservation,{headers})
   }
   public getPassengerByReservationId(reservationid:string):any{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa("anwar" + ':' + "password") });
