@@ -12,8 +12,10 @@ export class FindFlightsComponent implements OnInit {
   findFlight: FormGroup;
   flights: any;
   showResults: boolean;
+   allFlights:any;
   constructor(private _service: ReservationService) {
     this.showResults = true;
+
     this.findFlight = new FormGroup({
       from: new FormControl("NYC"),
       to: new FormControl("DAL"),
@@ -32,7 +34,18 @@ export class FindFlightsComponent implements OnInit {
     this.showResults = false;
   }
 
+
+  
   ngOnInit(): void {
+
+    this._service.getAllFlight().subscribe(response => {
+      console.log(response);
+      this.allFlights = response;
+    }, (error) => {
+      console.log(error);
+    })
   }
 
-}
+  }
+
+

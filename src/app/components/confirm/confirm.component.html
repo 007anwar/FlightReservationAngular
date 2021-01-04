@@ -1,7 +1,18 @@
 
 
-<h3 align="center">RESERVATION DETAILS</h3>
-<div class="container">
+<nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-text">
+     <H5>RESERVATION DETAILS</H5>
+       </span>
+       <span class="navbar-text">
+           <label>Enter reservation id to get details</label>
+   <input type="text" [(ngModel)]="reservationId">
+   <input type="button" value="GET DETAILS" (click)="getReservationDetails()">
+          </span>
+  </nav>
+<br/>
+
+<div class="container" [hidden]="showDetails">
     <div class="row">
         <div class="col-md-6">
             <ul class="list-group">
@@ -24,6 +35,9 @@
     </div>
     <br/>
     <div align='center'>
-    <input  type="button" value="confirm reservation" (click)="confirmReservation()" class="btn btn-success">
+    <input  type="button" [value]="confirmButton" (click)="confirmReservation()" class="btn btn-success">
 </div>
+<div class="alert alert-primary" role="alert" [hidden]="showConfirm">
+    A simple primary alert—check it out!
+  </div>
 </div>
